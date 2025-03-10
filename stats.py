@@ -24,4 +24,14 @@ def char_counter():
             dict[lower] = 1
         else:
             dict[lower] += 1
-    print(dict)
+    return dict
+
+def value_pair():
+    list = []
+    dict = char_counter()
+    for key, value in dict.items():
+        if key not in list:
+            list.append({key: value})
+    print(list)
+
+value_pair()
