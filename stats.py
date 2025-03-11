@@ -1,18 +1,11 @@
 #Hello project #1,change path
-path = "books/frankenstein.txt"
 
-def get_book_text(books):
-    with open(books) as file:
-        return file.read()
-
-def word_counter():
-    text = get_book_text(path)
+def word_counter(text):
     words = text.split()
     word_count = len(words)
     return word_count
 
-def char_counter():
-    text = get_book_text(path)
+def char_counter(text):
     dict = {}
     for i in text:
         lower = i.lower()
@@ -20,14 +13,12 @@ def char_counter():
             dict[lower] = 1
         else:
             dict[lower] += 1
-    return dict
+    return(dict)
+    
 
-
-def sort_list():
+def sort_list(text):
     list = []
-    dict = char_counter()
-
-    for key, value in dict.items():
+    for key, value in text.items():
         entry = {"char": key, "count": value}
         list.append(entry)
 
@@ -44,4 +35,3 @@ def sort_list():
         two_pair_set.append(two_pair_dict)
     
     return two_pair_set
-    print(two_pair_set)
