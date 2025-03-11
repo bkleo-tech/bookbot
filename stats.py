@@ -1,13 +1,9 @@
-#Hello project #1
+#Hello project #1,change path
 path = "books/frankenstein.txt"
 
 def get_book_text(books):
     with open(books) as file:
         return file.read()
-
-def main():
-    text = get_book_text(path)
-    return text
 
 def word_counter():
     text = get_book_text(path)
@@ -25,15 +21,6 @@ def char_counter():
         else:
             dict[lower] += 1
     return dict
-
-def value_pair():
-    list = []
-    dict = char_counter()
-    for key, value in dict.items():
-        sort_list = {"char": key, "count": value}
-        if key not in list:
-            list.append(sort_list)
-    print(list)
 
 
 def sort_list():
