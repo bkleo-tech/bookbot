@@ -1,21 +1,20 @@
+path = "books/frankenstein.txt"
+
 def get_book_text(books):
     with open(books) as file:
         return file.read()
 
 def main():
-    path = "books/frankenstein.txt"
     text = get_book_text(path)
     return text
 
 def word_counter():
-    path = "books/frankenstein.txt"
     text = get_book_text(path)
     words = text.split()
     word_count = len(words)
-    print(f"{word_count} words found in the document")
+    return word_count
 
 def char_counter():
-    path = "books/frankenstein.txt"
     text = get_book_text(path)
     dict = {}
     for i in text:
@@ -56,8 +55,23 @@ def sort_list():
         two_pair_dict[char] = count
         two_pair_set.append(two_pair_dict)
     
+    return two_pair_set
     print(two_pair_set)
 
 
-sort_list()
+    
 
+print("============ BOOKBOT ============")
+print(f"Analyzing book found at {path}...")
+print("----------- Word Count ----------")
+print(f"Found {word_counter()} total words")
+print("--------- Character Count -------")
+
+to_print = sort_list()
+for i in to_print:
+    character = list(i.keys())[0]
+    if character.isalpha():
+        count = i[character]
+        print(f"{character}: {count}")
+
+print("============= END ===============")
